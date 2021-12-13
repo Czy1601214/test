@@ -2,8 +2,19 @@ pipeline {
   agent none
   stages {
     stage('start') {
-      steps {
-        echo 'start'
+      parallel {
+        stage('start') {
+          steps {
+            echo 'start'
+          }
+        }
+
+        stage('init') {
+          steps {
+            echo 'init'
+          }
+        }
+
       }
     }
 
